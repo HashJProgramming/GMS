@@ -25,7 +25,7 @@
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
-                </ul>
+                </ul><a class="btn btn-outline-light ms-md-2" role="button" href="#">Register</a>
             </div>
         </div>
     </nav>
@@ -76,6 +76,7 @@
             </div>
         </div>
     </div>
+    <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
