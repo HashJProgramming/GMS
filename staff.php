@@ -1,3 +1,6 @@
+<?php
+    include_once 'functions/authentication.php';
+?>
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
@@ -30,7 +33,7 @@
                     <li class="nav-item"><a class="nav-link active" href="staff.html"><i class="far fa-user"></i><span>Manage Staff</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="reports.html"><i class="fas fa-table"></i><span>Reports</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="logs.html"><i class="far fa-address-card"></i><span>Users Activity Logs</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="far fa-clock"></i><span>Logout</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="functions/logout.php"><i class="far fa-clock"></i><span>Logout</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>

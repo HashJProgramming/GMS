@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    header('Location: ./dashboard.php');
+}
+?>
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
 
@@ -42,17 +48,17 @@
                             <div class="text-center">
                                 <h4 class="text-dark mb-4">Welcome Back!</h4>
                             </div>
-                            <form class="user">
-                                <div class="mb-3"><input class="form-control form-control-user" type="text" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Username..." name="username"></div>
-                                <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password"></div>
+                            <form action="functions/login.php" method="post">
+                                <div class="mb-3"><input class="form-control form-control-user" type="text"  placeholder="Enter Username..." name="username" value="<?php echo isset($_COOKIE['username']) ? $_COOKIE['username'] : ''; ?>"></div>
+                                <div class="mb-3"><input class="form-control form-control-user" type="password"  placeholder="Password" name="password" value="<?php echo isset($_COOKIE['password']) ? $_COOKIE['password'] : ''; ?>"></div>
                                 <div class="mb-3">
                                     <div class="custom-control custom-checkbox small">
-                                        <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label></div>
+                                        <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1" <?php echo isset($_COOKIE['username']) ? 'checked' : ''; ?> name="remember"><label class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label></div>
                                     </div>
                                 </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Login</button>
                                 <hr>
                             </form>
-                            <div class="text-center"></div>
+                           
                         </div>
                     </div>
                 </div>
