@@ -31,7 +31,7 @@ if (isset($_SESSION['username'])) {
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
-                </ul><a class="btn btn-outline-light ms-md-2" role="button" href="#">Register</a>
+                </ul>
             </div>
         </div>
     </nav>
