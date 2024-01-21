@@ -27,12 +27,12 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="members.html"><i class="far fa-folder-open"></i><span>Manage Members</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="status.html"><i class="far fa-calendar-alt"></i><span>Member Status</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="staff.html"><i class="far fa-user"></i><span>Manage Staff</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="reports.html"><i class="fas fa-table"></i><span>Reports</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="logs.html"><i class="far fa-address-card"></i><span>Users Activity Logs</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="members.php"><i class="far fa-folder-open"></i><span>Manage Members</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="status.php"><i class="far fa-calendar-alt"></i><span>Member Status</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="staff.php"><i class="far fa-user"></i><span>Manage Staff</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="reports.php"><i class="fas fa-table"></i><span>Reports</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="logs.php"><i class="far fa-address-card"></i><span>Users Activity Logs</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="functions/logout.php"><i class="far fa-clock"></i><span>Logout</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
