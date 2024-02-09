@@ -20,8 +20,8 @@ foreach ($results as $row) {
         <td><?=$row['birthdate']?></td>
         <td><?=$row['start_date']?></td>
         <td class="text-center">
-            <button class="btn btn-warning btn-sm d-none d-sm-inline-block mx-1 my-1" type="button" data-bs-target="#update" data-bs-toggle="modal" data-id="<?=$row['id']?>" data-fullname="<?=$row['fullname']?>" data-address="<?=$row['address']?>" data-phone="<?=$row['phone']?>" data-sex="<?=$row['sex']?>" data-type="<?=$row['type']?>" data-birthdate="<?=$row['birthdate']?>" data-start_date="<?=$row['start_date']?>"><i class="fas fa-check-circle fa-sm text-white-50"></i>&nbsp;Update</button>
-            <button class="btn btn-danger btn-sm d-none d-sm-inline-block mx-1 my-1 <?php echo ($_SESSION['level'] == 1) ? 'd-none' : ''; ?>" type="button" data-bs-target="#remove" data-bs-toggle="modal" data-id="<?=$row['id']?>"><i class="fas fa-trash-alt fa-sm text-white-50"></i>&nbsp;Remove</button></td>
+            <button class="btn btn-warning btn-sm mx-1 my-1" type="button" data-bs-target="#update" data-bs-toggle="modal" data-id="<?=$row['id']?>" data-fullname="<?=$row['fullname']?>" data-address="<?=$row['address']?>" data-phone="<?=$row['phone']?>" data-sex="<?=$row['sex']?>" data-type="<?=$row['type']?>" data-birthdate="<?=$row['birthdate']?>" data-start_date="<?=$row['start_date']?>"><i class="fas fa-check-circle fa-sm text-white-50"></i>&nbsp;Update</button>
+            <button class="btn btn-danger btn-sm mx-1 my-1 <?php echo ($_SESSION['level'] == 1) ? 'd-none' : ''; ?>" type="button" data-bs-target="#remove" data-bs-toggle="modal" data-id="<?=$row['id']?>"><i class="fas fa-trash-alt fa-sm text-white-50"></i>&nbsp;Remove</button></td>
     </tr>
 <?php
 }
