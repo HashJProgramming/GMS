@@ -103,6 +103,14 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/dataTables.bootstrap5.min.js"></script>
+    <script src="assets/js/dataTables.buttons.min.js"></script>
+    <script src="assets/js/jszip.min.js"></script>
+    <script src="assets/js/pdfmake.min.js"></script>
+    <script src="assets/js/vfs_fonts.js"></script>
+    <script src="assets/js/buttons.html5.min.js"></script>
+    <script src="assets/js/buttons.print.min.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/sweetalert.min.js"></script>
     <script>
@@ -117,22 +125,22 @@
     </script>
     <script>
         $(document).ready(function() {
-            // $('#dataTable').DataTable({
-            //     dom: 'Blfrtip',
-            //     buttons: [{
-            //             extend: 'excel',
-            //             className: 'btn btn-primary'
-            //         },
-            //         {
-            //             extend: 'pdf',
-            //             className: 'btn btn-primary'
-            //         },
-            //         {
-            //             extend: 'print',
-            //             className: 'btn btn-primary'
-            //         }
-            //     ]
-            // });
+            $('#dataTable').DataTable({
+                dom: 'Blfrtip',
+                buttons: [{
+                        extend: 'excel',
+                        className: 'btn btn-primary'
+                    },
+                    {
+                        extend: 'pdf',
+                        className: 'btn btn-primary'
+                    },
+                    {
+                        extend: 'print',
+                        className: 'btn btn-primary'
+                    }
+                ]
+            });
 
             $('button[data-bs-target="#pay"]').on('click', function() {
                 var id = $(this).data('id');
@@ -149,7 +157,7 @@
             });
 
         });
-        console.log('test');    
+        console.log("Develop by ❤️ Hash'J Programming");    
     </script>
 </body>
 
