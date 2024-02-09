@@ -1,35 +1,23 @@
 <?php
 include_once 'functions/connection.php';
 
-$sql = 'SELECT * FROM customers ORDER BY fullname ASC';
+$sql = 'SELECT * FROM `users` WHERE `level` > 0';
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $results = $stmt->fetchAll();
 
-
 foreach ($results as $row) {
-$fullname = $row['fullname'];
-$fullname = explode(' ', $fullname);
-$firstname = $fullname[0];
-$lastname = $fullname[1];
 ?>
     <tr>
-        <td><?php echo $row['id']; ?></td>
-        <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/profile.png"><?php echo $row['fullname']; ?></td>
-        <td><?php echo $row['address']; ?></td>
-        <td><?php echo $row['contact']; ?></td>
-        <td><?php echo $row['created_at']; ?></td>
+        <td><?=$row['id']?></td>
+        <td><?=$row['username'] ? : 'None';?></td>
+        <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg"><?=$row['fullname']? : 'None'?></td>
+        <td><?=$row['address']? : 'None'?></td>
+        <td><?=$row['phone']? : 'None'?></td>
+        <td><?=$row['created_at']?></td>
         <td class="text-center">
-            <a class="mx-1 text-decoration-none" href="profile-customer.php?id=<?php echo $row['id'] ?>"><i class="far fa-eye" style="font-size: 20px;"></i> View Transactions</a>
-            <a class="mx-1 text-decoration-none text-warning" href="#" data-bs-target="#update" data-bs-toggle="modal" data-id="<?php echo $row['id']?>" data-firstname="<?php echo $firstname ?>" data-lastname="<?php echo $lastname ?>" data-address="<?php echo $row['address'] ?>" data-contact="<?php echo $row['contact'] ?>" ><i class="far fa-edit text-warning" style="font-size: 20px;"></i> Update</a>
-            <a class="mx-1 text-decoration-none text-danger" href="#" data-bs-target="#remove" data-bs-toggle="modal" data-id="<?php echo $row['id']?>"><i class="far fa-trash-alt text-danger" style="font-size: 20px;"></i> Remove</a>
-        </td>
-
-        <?php
-
-        ?>
-
+            <button class="btn btn-warning btn-sm d-none d-sm-inline-block mx-1 my-1" type="button" data-bs-target="#update" data-bs-toggle="modal" data-id="<?=$row['id']?>" data-fullname="<?=$row['fullname']?>" data-address="<?=$row['address']?>" data-phone="<?=$row['phone']?>" data-username="<?=$row['username']?>" data-password="<?=$row['password']?>"><i class="fas fa-check-circle fa-sm text-white-50"></i>&nbsp;Update</button>
+            <button class="btn btn-danger btn-sm d-none d-sm-inline-block mx-1 my-1" type="button" data-bs-target="#remove" data-bs-toggle="modal" data-id="<?=$row['id']?>"><i class="fas fa-trash-alt fa-sm text-white-50"></i>&nbsp;Remove</button></td>
     </tr>
-
 <?php
 }

@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('Asia/Manila');
-$database = 'bhrms';
+$database = 'gms_db';
 $db = new PDO('mysql:host=localhost', 'root', '');
 $query = "CREATE DATABASE IF NOT EXISTS $database";
 
@@ -15,35 +15,24 @@ try {
               username VARCHAR(255),
               password VARCHAR(255),
               fullname VARCHAR(255),
-              email VARCHAR(255),
-              phone VARCHAR(255),
               address VARCHAR(255),
+              phone VARCHAR(255),
               level VARCHAR(255),
               created_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )
             ");
 
-    $db->exec("
-            CREATE TABLE IF NOT EXISTS rooms (
-                id INT PRIMARY KEY AUTO_INCREMENT,
-                pax VARCHAR(255),
-                rent DECIMAL(10,2),
-                created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-            )
-        ");
 
     $db->exec("
-        CREATE TABLE IF NOT EXISTS boarders (
+        CREATE TABLE IF NOT EXISTS members (
             id INT PRIMARY KEY AUTO_INCREMENT,
             fullname VARCHAR(255),
             phone VARCHAR(255),
             sex varchar(255),
             address VARCHAR(255),
-            room VARCHAR(255),
             type VARCHAR(255),
+            birthdate DATE,
             start_date DATE,
-            profile_picture VARCHAR(255),
-            proof_of_identity VARCHAR(255),
           created_at DATETIME DEFAULT CURRENT_TIMESTAMP
         )
         ");
@@ -51,13 +40,12 @@ try {
     $db->exec("
         CREATE TABLE IF NOT EXISTS payments (
             id INT PRIMARY KEY AUTO_INCREMENT,
-            boarder INT,
+            member INT,
             room INT,
             amount DECIMAL(10,2),
             total DECIMAL(10,2),
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-            FOREIGN KEY (boarder) REFERENCES boarders(id) ON DELETE CASCADE,
-            FOREIGN KEY (room) REFERENCES rooms(id) ON DELETE CASCADE
+            FOREIGN KEY (member) REFERENCES members(id) ON DELETE CASCADE
         )
     ");
 

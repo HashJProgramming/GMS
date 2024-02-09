@@ -86,6 +86,17 @@ if (isset($_SESSION['username'])) {
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/sweetalert.min.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get('type');
+        const message = urlParams.get('message');
+        if (type == 'success') {
+            swal("Success!", message, "success");
+        } else if (type == 'error') {
+            swal("Error!", message, "error");
+        }
+    </script>
 </body>
 
 </html>

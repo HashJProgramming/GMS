@@ -53,37 +53,22 @@
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
                                             <th>Fullname</th>
                                             <th>Address</th>
                                             <th>Phone</th>
                                             <th>Age</th>
                                             <th>Sex</th>
                                             <th>Type</th>
+                                            <th>Birthdate</th>
                                             <th>Start date</th>
-                                            <th>Option</th>
+                                            <th class="text-center">Option</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                            <td>Pagadian City</td>
-                                            <td>0000000000</td>
-                                            <td>33</td>
-                                            <td>Female</td>
-                                            <td>Regular</td>
-                                            <td>2008/11/28</td>
-                                            <td><button class="btn btn-primary btn-sm d-none d-sm-inline-block mx-1" id="my-1" type="button" data-bs-target="#add" data-bs-toggle="modal"><i class="fas fa-eye fa-sm text-white-50"></i>&nbsp;View</button><button class="btn btn-warning btn-sm d-none d-sm-inline-block mx-1" id="my-1" type="button" data-bs-target="#add" data-bs-toggle="modal"><i class="fas fa-check-circle fa-sm text-white-50"></i>&nbsp;Update</button><button class="btn btn-danger btn-sm d-none d-sm-inline-block mx-1" id="my0" type="button" data-bs-target="#add" data-bs-toggle="modal"><i class="fas fa-trash-alt fa-sm text-white-50"></i>&nbsp;Remove</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                            <td>Pagadian City</td>
-                                            <td>0000000000</td>
-                                            <td>33</td>
-                                            <td>Female</td>
-                                            <td>VIP</td>
-                                            <td>2008/11/28</td>
-                                            <td><button class="btn btn-primary btn-sm d-none d-sm-inline-block mx-1" id="my-2" type="button" data-bs-target="#add" data-bs-toggle="modal"><i class="fas fa-eye fa-sm text-white-50"></i>&nbsp;View</button><button class="btn btn-warning btn-sm d-none d-sm-inline-block mx-1" id="my-3" type="button" data-bs-target="#add" data-bs-toggle="modal"><i class="fas fa-check-circle fa-sm text-white-50"></i>&nbsp;Update</button><button class="btn btn-danger btn-sm d-none d-sm-inline-block mx-1" id="my-4" type="button" data-bs-target="#add" data-bs-toggle="modal"><i class="fas fa-trash-alt fa-sm text-white-50"></i>&nbsp;Remove</button></td>
-                                        </tr>
+                                            
+                                        <?php include_once 'functions/views/members.php' ?>
+                                        
                                     </tbody>
                                     <tfoot>
                                         <tr></tr>
@@ -108,7 +93,7 @@
                     <h4 class="modal-title">Add Member</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="functions/add-member.php" method="POST">
                         <div class="row">
                             <div class="col">
                                 <div class="form-floating mb-3"><input class="form-control form-control" type="text" placeholder="Fullname" name="fullname"><label class="form-label" for="floatingInput">Fullname</label></div>
@@ -135,12 +120,13 @@
                                 <option value="Premium">₱500 Premium (Membership, Coach, Personal Locker)</option>
                                 <option value="VIP">₱800 VIP (Membership, ID Card, Coach, Personal Locker)</option>
                             </select><label class="form-label" for="floatingSelect">Type</label></div>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Save</button></div>
                     </form>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
             </div>
         </div>
     </div>
+
     <div class="modal fade" role="dialog" tabindex="-1" id="update">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -148,13 +134,14 @@
                     <h4 class="modal-title">Update Member</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="functions/update-member.php" method="POST">
+                        <input type="hidden" name="id">
                         <div class="row">
                             <div class="col">
                                 <div class="form-floating mb-3"><input class="form-control form-control" type="text" placeholder="Fullname" name="fullname"><label class="form-label" for="floatingInput">Fullname</label></div>
                             </div>
                             <div class="col">
-                                <div class="form-floating"><select class="form-select form-select" aria-label="Floating label select example" id="floatingSelect-2" name="sex">
+                                <div class="form-floating"><select class="form-select form-select" aria-label="Floating label select example" id="floatingSelect" name="sex">
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select><label class="form-label" for="floatingSelect">Sex</label></div>
@@ -170,17 +157,18 @@
                                 <div class="form-floating mb-3"><input class="form-control form-control" placeholder="" type="date" name="birthdate"><label class="form-label" for="floatingInput">Birthdate</label></div>
                             </div>
                         </div>
-                        <div class="form-floating"><select class="form-select form-select" aria-label="Floating label select example" id="floatingSelect-3" name="type">
+                        <div class="form-floating"><select class="form-select form-select" aria-label="Floating label select example" id="floatingSelect-1" name="type">
                                 <option value="Regular">₱300 Regular (Membership)</option>
                                 <option value="Premium">₱500 Premium (Membership, Coach, Personal Locker)</option>
                                 <option value="VIP">₱800 VIP (Membership, ID Card, Coach, Personal Locker)</option>
                             </select><label class="form-label" for="floatingSelect">Type</label></div>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Save</button></div>
                     </form>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
             </div>
         </div>
     </div>
+    
     <div class="modal fade" role="dialog" tabindex="-1" id="remove">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -188,9 +176,12 @@
                     <h4 class="modal-title">Remove Member</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to remove this member?</p>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">No</button><button class="btn btn-danger" type="button">Yes</button></div>
+                    <form action="functions/remove-member.php" method="post">
+                        <input type="hidden" name="id">
+                        <p>Are you sure you want to remove this member?</p>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">No</button><button class="btn btn-danger" type="submit">Yes</button></div>
+                </form>
             </div>
         </div>
     </div>
@@ -198,6 +189,65 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/sweetalert.min.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get('type');
+        const message = urlParams.get('message');
+        if (type == 'success') {
+            swal("Success!", message, "success");
+        } else if (type == 'error') {
+            swal("Error!", message, "error");
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+            // $('#dataTable').DataTable({
+            //     dom: 'Blfrtip',
+            //     buttons: [{
+            //             extend: 'excel',
+            //             className: 'btn btn-primary'
+            //         },
+            //         {
+            //             extend: 'pdf',
+            //             className: 'btn btn-primary'
+            //         },
+            //         {
+            //             extend: 'print',
+            //             className: 'btn btn-primary'
+            //         }
+            //     ]
+            // });
+
+            $('button[data-bs-target="#update"]').on('click', function() {
+                var id = $(this).data('id');
+                var fullname = $(this).data('fullname');
+                var address = $(this).data('address');
+                var phone = $(this).data('phone');
+                var sex = $(this).data('sex');
+                var type = $(this).data('type');
+                var birthdate = $(this).data('birthdate');
+                var start_date = $(this).data('start_date');
+
+                console.log(id);
+                $('input[name="id"]').val(id);
+                $('input[name="fullname"]').val(fullname);
+                $('input[name="address"]').val(address);
+                $('input[name="phone"]').val(phone);
+                $('select[name="sex"]').val(sex);
+                $('select[name="type"]').val(type);
+                $('input[name="birthdate"]').val(birthdate);
+                $('input[name="start_date"]').val(start_date);
+            });
+
+            $('button[data-bs-target="#remove"]').on('click', function() {
+                var id = $(this).data('id');
+                console.log(id);
+                $('input[name="id"]').val(id);
+            });
+
+        });
+    </script>
 </body>
 
 </html>

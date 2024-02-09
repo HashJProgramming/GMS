@@ -53,6 +53,8 @@
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
+                                            <th>ID</th>
+                                            <th>Username</th>
                                             <th>Fullname</th>
                                             <th>Address</th>
                                             <th>Phone</th>
@@ -61,20 +63,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                            <td>Pagadian City</td>
-                                            <td>0000000000</td>
-                                            <td>2008/11/28</td>
-                                            <td class="text-center"><button class="btn btn-warning btn-sm d-none d-sm-inline-block mx-1" id="my-6" type="button" data-bs-target="#update" data-bs-toggle="modal"><i class="fas fa-check-circle fa-sm text-white-50"></i>&nbsp;Update</button><button class="btn btn-danger btn-sm d-none d-sm-inline-block mx-1" id="my0" type="button" data-bs-target="#remove" data-bs-toggle="modal"><i class="fas fa-trash-alt fa-sm text-white-50"></i>&nbsp;Remove</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                            <td>Pagadian City</td>
-                                            <td>0000000000</td>
-                                            <td>2008/11/28</td>
-                                            <td class="text-center"><button class="btn btn-warning btn-sm d-none d-sm-inline-block mx-1" id="my-3" type="button" data-bs-target="#update" data-bs-toggle="modal"><i class="fas fa-check-circle fa-sm text-white-50"></i>&nbsp;Update</button><button class="btn btn-danger btn-sm d-none d-sm-inline-block mx-1" id="my-4" type="button" data-bs-target="#remove" data-bs-toggle="modal"><i class="fas fa-trash-alt fa-sm text-white-50"></i>&nbsp;Remove</button></td>
-                                        </tr>
+                                        <?php include_once 'functions/views/staff.php' ?>
                                     </tbody>
                                     <tfoot>
                                         <tr></tr>
@@ -99,11 +88,15 @@
                     <h4 class="modal-title">Add Staff</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Fullname" name="fullname"><label class="form-label" for="floatingInput">Fullname</label></div>
-                    <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Address" name="address"><label class="form-label" for="floatingInput">Address</label></div>
-                    <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Phone" name="phone"><label class="form-label" for="floatingInput">Phone</label></div>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+                    <form action="functions/add-staff.php" method="post">
+                        <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Username" name="username"><label class="form-label" for="floatingInput">Username</label></div>
+                        <div class="form-floating mb-3"><input type="password" class="form-control" placeholder="Password" name="password"><label class="form-label" for="floatingInput">Password</label></div>
+                        <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Fullname" name="fullname"><label class="form-label" for="floatingInput">Fullname</label></div>
+                        <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Address" name="address"><label class="form-label" for="floatingInput">Address</label></div>
+                        <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Phone" name="phone"><label class="form-label" for="floatingInput">Phone</label></div>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Save</button></div>
+                </form>
             </div>
         </div>
     </div>
@@ -114,11 +107,15 @@
                     <h4 class="modal-title">Update Staff</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Fullname" name="fullname"><label class="form-label" for="floatingInput">Fullname</label></div>
-                    <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Address" name="address"><label class="form-label" for="floatingInput">Address</label></div>
-                    <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Phone" name="phone"><label class="form-label" for="floatingInput">Phone</label></div>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+                    <form action="functions/update-staff.php" method="post">
+                        <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Username" name="username"><label class="form-label" for="floatingInput">Username</label></div>
+                        <div class="form-floating mb-3"><input type="password" class="form-control" placeholder="Password" name="password"><label class="form-label" for="floatingInput">Password</label></div>
+                        <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Fullname" name="fullname"><label class="form-label" for="floatingInput">Fullname</label></div>
+                        <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Address" name="address"><label class="form-label" for="floatingInput">Address</label></div>
+                        <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Phone" name="phone"><label class="form-label" for="floatingInput">Phone</label></div>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Save</button></div>
+                </form>
             </div>
         </div>
     </div>
@@ -139,6 +136,58 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/sweetalert.min.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get('type');
+        const message = urlParams.get('message');
+        if (type == 'success') {
+            swal("Success!", message, "success");
+        } else if (type == 'error') {
+            swal("Error!", message, "error");
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+            // $('#dataTable').DataTable({
+            //     dom: 'Blfrtip',
+            //     buttons: [{
+            //             extend: 'excel',
+            //             className: 'btn btn-primary'
+            //         },
+            //         {
+            //             extend: 'pdf',
+            //             className: 'btn btn-primary'
+            //         },
+            //         {
+            //             extend: 'print',
+            //             className: 'btn btn-primary'
+            //         }
+            //     ]
+            // });
+
+            $('button[data-bs-target="#update"]').on('click', function() {
+                var id = $(this).data('id');
+                var fullname = $(this).data('fullname');
+                var address = $(this).data('address');
+                var phone = $(this).data('phone');
+
+
+                console.log(id);
+                $('input[name="id"]').val(id);
+                $('input[name="fullname"]').val(fullname);
+                $('input[name="address"]').val(address);
+                $('input[name="phone"]').val(phone);
+            });
+
+            $('button[data-bs-target="#remove"]').on('click', function() {
+                var id = $(this).data('id');
+                console.log(id);
+                $('input[name="id"]').val(id);
+            });
+
+        });
+    </script>
 </body>
 
 </html>
