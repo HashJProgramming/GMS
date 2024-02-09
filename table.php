@@ -77,7 +77,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
+                                            <td><img class="rounded-circle me-2" width="30" height="30" src="https://bootdey.com/img/Content/avatar/avatar7.png">Airi Satou</td>
                                             <td>Accountant</td>
                                             <td>Tokyo</td>
                                             <td>33</td>
@@ -117,7 +117,7 @@
                                             <td>$206,850</td>
                                         </tr>
                                         <tr>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Brielle Williamson</td>
+                                            <td><img class="rounded-circle me-2" width="30" height="30" src="https://bootdey.com/img/Content/avatar/avatar7.png">Brielle Williamson</td>
                                             <td>Integration Specialist</td>
                                             <td>New York</td>
                                             <td>61</td>

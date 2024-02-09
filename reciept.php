@@ -4,7 +4,7 @@ include_once 'functions/connection.php';
 
 $id = $_GET['id'];
 
-$sql = "SELECT p.*, b.* FROM `payments` p INNER JOIN `boarders` b ON p.boarder = b.id WHERE p.id = :id";
+$sql = "SELECT p.*, b.* FROM `payments` p INNER JOIN `members` b ON p.member = b.id WHERE p.id = :id";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':id', $id);
 $stmt->execute();
@@ -18,7 +18,7 @@ $change = $amount - $total ;
 function getRentalReciept(){
     global $db;
     global $id;
-    $sql = "SELECT p.*, b.* FROM `payments` p INNER JOIN `boarders` b ON p.boarder = b.id WHERE p.id = :id";
+    $sql = "SELECT p.*, b.* FROM `payments` p INNER JOIN `members` b ON p.member = b.id WHERE p.id = :id";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(':id', $id);
     $stmt->execute();
@@ -86,7 +86,7 @@ function getRentalReciept(){
         <table class="table table-borderless">
             <thead class="font-monospace">
                 <tr class="font-monospace">
-                    <th class="font-monospace" style="font-size: 15px;"><span style="font-weight: normal !important;">BOARDER: <strong><?php echo $boarder; ?></strong></span></th>
+                    <th class="font-monospace" style="font-size: 15px;"><span style="font-weight: normal !important;">MEMBER: <strong><?php echo $boarder; ?></strong></span></th>
                     <th class="font-monospace text-end" style="font-size: 15px;"></th>
                     <th class="font-monospace text-end" style="font-size: 15px;"></th>
                     <th class="font-monospace text-end" style="font-size: 15px;">INVOICE #<?php echo $_GET['id'] ?></th>
@@ -102,8 +102,8 @@ function getRentalReciept(){
         <table class="table table-borderless">
             <thead class="font-monospace">
                 <tr class="font-monospace">
-                    <th class="font-monospace text-start" style="font-size: 15px;"><span><strong>BOARDER</strong></span></th>
-                    <th class="font-monospace text-center" style="font-size: 15px;"><span><strong>ROOM</strong></span></th>
+                    <th class="font-monospace text-start" style="font-size: 15px;"><span><strong>MEMBER</strong></span></th>
+                    <th class="font-monospace text-center" style="font-size: 15px;"><span><strong>TYPE</strong></span></th>
                     <th class="font-monospace text-center" style="font-size: 15px;"><span><strong>PRICE</strong></span></th>
                     <th class="font-monospace text-end" style="font-size: 15px;"><span><strong>AMOUNT</strong></span></th>
                 </tr>
@@ -146,7 +146,7 @@ function getRentalReciept(){
                 setTimeout(function() {
                     window.setTimeout(function() {
                         window.print();
-                        window.location.href = 'rentals.php';
+                        window.location.href = 'status.php';
                     }, 500);
                 }, 500);
             }

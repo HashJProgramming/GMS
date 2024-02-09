@@ -41,7 +41,7 @@ try {
         CREATE TABLE IF NOT EXISTS payments (
             id INT PRIMARY KEY AUTO_INCREMENT,
             member INT,
-            room INT,
+            type VARCHAR(255),
             amount DECIMAL(10,2),
             total DECIMAL(10,2),
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,

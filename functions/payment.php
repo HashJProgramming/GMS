@@ -2,8 +2,15 @@
 include_once 'connection.php';
 
 $id = $_POST['id'];
-$room = $_POST['room'];
-$total = $_POST['total'];
+$type = $_POST['type'];
+if ($type == 'REGULAR'){
+    $total = 300;
+} elseif ($type == 'PREMIUM'){
+    $total = 500;
+} else {
+    $total = 800;
+}
+
 $amount = $_POST['amount'];
 $change = $amount - $total;
 
@@ -12,17 +19,17 @@ if ($change < 0) {
     exit;
 }
 
-$sql = "INSERT INTO payments (boarder, room, amount, total) VALUES (:boarder, :room, :amount, :total)";
+$sql = "INSERT INTO payments (member, type, amount, total) VALUES (:member, :type, :amount, :total)";
 $stmt = $db->prepare($sql);
-$stmt->bindParam(':boarder', $id);
-$stmt->bindParam(':room', $room);
+$stmt->bindParam(':member', $id);
+$stmt->bindParam(':type', $type);
 $stmt->bindParam(':amount', $amount);
 $stmt->bindParam(':total', $total);
 $stmt->execute();
 
 $paymentId = $db->lastInsertId();
 
-$sql = "UPDATE boarders SET start_date = CURDATE() WHERE id = :id";
+$sql = "UPDATE members SET start_date = CURDATE() WHERE id = :id";
 $stmt = $db->prepare($sql);
 $stmt->bindParam(':id', $id);
 $stmt->execute();

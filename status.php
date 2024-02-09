@@ -27,12 +27,12 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="dashboard.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="members.php"><i class="far fa-folder-open"></i><span>Manage Members</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="status.php"><i class="far fa-calendar-alt"></i><span>Member Status</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="staff.php"><i class="far fa-user"></i><span>Manage Staff</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="reports.php"><i class="fas fa-table"></i><span>Reports</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="logs.php"><i class="far fa-address-card"></i><span>Users Activity Logs</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="status.php"><i class="far fa-calendar-alt"></i><span>Member Status</span></a></li>
+                    <li class="nav-item <?php echo ($_SESSION['level'] == 1) ? 'd-none' : ''; ?>"><a class="nav-link" href="staff.php"><i class="far fa-user"></i><span>Manage Staff</span></a></li>
+                    <li class="nav-item <?php echo ($_SESSION['level'] == 1) ? 'd-none' : ''; ?>"><a class="nav-link" href="reports.php"><i class="fas fa-table"></i><span>Reports</span></a></li>
+                    <li class="nav-item <?php echo ($_SESSION['level'] == 1) ? 'd-none' : ''; ?>"><a class="nav-link" href="logs.php"><i class="far fa-address-card"></i><span>Users Activity Logs</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="functions/logout.php"><i class="far fa-clock"></i><span>Logout</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
@@ -90,11 +90,13 @@
                     <h4 class="modal-title">Payment</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="functions/payment.php" method="POST">
+                        <input type="hidden" name="id">
+                        <input type="hidden" name="type">
                         <div class="form-floating mb-3"><input class="form-control form-control" type="number" placeholder="Amount" name="amount"><label class="form-label" for="floatingInput">Amount</label></div>
-                    </form>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Save</button></div>
+                </form>
             </div>
         </div>
     </div>
@@ -102,6 +104,53 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/sweetalert.min.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get('type');
+        const message = urlParams.get('message');
+        if (type == 'success') {
+            swal("Success!", message, "success");
+        } else if (type == 'error') {
+            swal("Error!", message, "error");
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+            // $('#dataTable').DataTable({
+            //     dom: 'Blfrtip',
+            //     buttons: [{
+            //             extend: 'excel',
+            //             className: 'btn btn-primary'
+            //         },
+            //         {
+            //             extend: 'pdf',
+            //             className: 'btn btn-primary'
+            //         },
+            //         {
+            //             extend: 'print',
+            //             className: 'btn btn-primary'
+            //         }
+            //     ]
+            // });
+
+            $('button[data-bs-target="#pay"]').on('click', function() {
+                var id = $(this).data('id');
+                var type = $(this).data('type');
+                $('input[name="id"]').val(id);
+                $('input[name="type"]').val(type);
+                console.log(id, type);
+            });
+
+            $('button[data-bs-target="#remove"]').on('click', function() {
+                var id = $(this).data('id');
+                console.log(id);
+                $('input[name="id"]').val(id);
+            });
+
+        });
+        console.log('test');    
+    </script>
 </body>
 
 </html>

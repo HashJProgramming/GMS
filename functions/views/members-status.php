@@ -24,7 +24,7 @@ foreach ($results as $row) {
     }
 ?>
     <tr>
-        <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg"><?=$row['fullname']?></td>
+        <td><img class="rounded-circle me-2" width="30" height="30" src="https://bootdey.com/img/Content/avatar/avatar7.png"><?=$row['fullname']?></td>
         <td><?=$row['address']?></td>
         <td><?=$row['phone']?></td>
         <td><?=$age?></td>
@@ -33,9 +33,9 @@ foreach ($results as $row) {
         <td><?=$row['start_date']?></td>
         <td><span class="<?= $class ?>"><?= $text ?></span></td>
         <td class="text-center">
-            <a class="btn btn-primary mx-1" role="button" href="profile.php" data-bs-target="#pay" data-bs-toggle="modal" data-id="<?= $row['id'] ?>" data-type="<?= $row['type'] ?>">
+            <button class="btn btn-primary mx-1" role="button" href="profile.php" data-bs-target="#pay" data-bs-toggle="modal" data-id="<?= $row['id'] ?>" data-type="<?= $row['type'] ?>">
                 <i class="far fa-money-bill-alt"></i>&nbsp;Payment
-            </a>
+            </button>
         </td>
     </tr>
 <?php

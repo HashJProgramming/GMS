@@ -56,34 +56,14 @@
                                             <th>Fullname</th>
                                             <th>Address</th>
                                             <th>Phone</th>
-                                            <th class="text-center">Membeship</th>
-                                            <th class="text-center">Total</th>
-                                            <th class="text-center">Amount</th>
-                                            <th class="text-center">Type</th>
-                                            <th class="text-end">Start date</th>
+                                            <th>Membeship</th>
+                                            <th>Total</th>
+                                            <th>Amount</th>
+                                            <th>Start date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                            <td>Pagadian City</td>
-                                            <td>0000000000</td>
-                                            <td class="text-center">₱0.00</td>
-                                            <td class="text-center">₱0.00</td>
-                                            <td class="text-center">₱0.00</td>
-                                            <td class="text-center">Regular</td>
-                                            <td class="text-end">2008/11/28</td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                            <td>Pagadian City</td>
-                                            <td>0000000000</td>
-                                            <td class="text-center">₱0.00</td>
-                                            <td class="text-center">₱0.00</td>
-                                            <td class="text-center">₱0.00</td>
-                                            <td class="text-center">VIP</td>
-                                            <td class="text-end">2008/11/28</td>
-                                        </tr>
+                                        <?php include_once 'functions/views/reports.php' ?>
                                     </tbody>
                                     <tfoot>
                                         <tr></tr>

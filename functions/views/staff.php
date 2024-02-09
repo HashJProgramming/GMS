@@ -11,7 +11,7 @@ foreach ($results as $row) {
     <tr>
         <td><?=$row['id']?></td>
         <td><?=$row['username'] ? : 'None';?></td>
-        <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg"><?=$row['fullname']? : 'None'?></td>
+        <td><img class="rounded-circle me-2" width="30" height="30" src="https://bootdey.com/img/Content/avatar/avatar7.png"><?=$row['fullname']? : 'None'?></td>
         <td><?=$row['address']? : 'None'?></td>
         <td><?=$row['phone']? : 'None'?></td>
         <td><?=$row['created_at']?></td>

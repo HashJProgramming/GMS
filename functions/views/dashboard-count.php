@@ -21,21 +21,22 @@ function calculateYearlyEarnings() {
     return $yearlyEarnings;
 }
 
-function countTotalBoarders() {
+function countTotalActiveMembers() {
     global $db;
-    $sql = 'SELECT COUNT(*) AS totalBoarders FROM boarders';
+    $sql = 'SELECT COUNT(*) AS totalActiveMembers FROM `members` WHERE DATE_ADD(start_date, INTERVAL 1 MONTH) > CURDATE()';
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetch();
-    $totalBoarders = $result['totalBoarders'];
-    return $totalBoarders;
+    $totalActiveMembers = $result['totalActiveMembers'];
+    return $totalActiveMembers;
 }
-function countTotalRooms() {
+
+function countTotalMembers() {
     global $db;
-    $sql = 'SELECT COUNT(*) AS totalRooms FROM rooms';
+    $sql = 'SELECT COUNT(*) AS totalMembers FROM members';
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetch();
-    $totalRooms = $result['totalRooms'];
-    return $totalRooms;
+    $totalMembers = $result['totalMembers'];
+    return $totalMembers;
 }

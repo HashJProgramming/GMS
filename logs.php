@@ -27,12 +27,12 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="dashboard.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="dashboard.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="members.php"><i class="far fa-folder-open"></i><span>Manage Members</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="status.php"><i class="far fa-calendar-alt"></i><span>Member Status</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="staff.php"><i class="far fa-user"></i><span>Manage Staff</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="reports.php"><i class="fas fa-table"></i><span>Reports</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="logs.php"><i class="far fa-address-card"></i><span>Users Activity Logs</span></a></li>
+                    <li class="nav-item <?php echo ($_SESSION['level'] == 1) ? 'd-none' : ''; ?>"><a class="nav-link" href="staff.php"><i class="far fa-user"></i><span>Manage Staff</span></a></li>
+                    <li class="nav-item <?php echo ($_SESSION['level'] == 1) ? 'd-none' : ''; ?>"><a class="nav-link" href="reports.php"><i class="fas fa-table"></i><span>Reports</span></a></li>
+                    <li class="nav-item <?php echo ($_SESSION['level'] == 1) ? 'd-none' : ''; ?>"><a class="nav-link" href="logs.php"><i class="far fa-address-card"></i><span>Users Activity Logs</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="functions/logout.php"><i class="far fa-clock"></i><span>Logout</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
@@ -56,25 +56,12 @@
                                             <th>ID</th>
                                             <th>User</th>
                                             <th>Type</th>
-                                            <th class="text-center">Logs</th>
-                                            <th class="text-end">Date</th>
+                                            <th>Logs</th>
+                                            <th>Date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                            <td>admin</td>
-                                            <td class="text-center">None</td>
-                                            <td class="text-end">2008/11/28</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                            <td>admin</td>
-                                            <td class="text-center">None</td>
-                                            <td class="text-end">2008/11/28</td>
-                                        </tr>
+                                        <?php include_once 'functions/views/activity.php' ?>
                                     </tbody>
                                     <tfoot>
                                         <tr></tr>
