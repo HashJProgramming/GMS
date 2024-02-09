@@ -10,13 +10,6 @@ $start_date = $_POST['start_date'];
 $birthdate = $_POST['birthdate'];
 $amount = $_POST['amount'];
 
-if ($type == 'Regular'){
-    $total = 300;
-} elseif ($type == 'Premium'){
-    $total = 500;
-} else {
-    $total = 800;
-}
 
 $sql = "SELECT * FROM members WHERE fullname = :fullname OR phone = :phone";
 $stmt = $db->prepare($sql);
@@ -28,6 +21,14 @@ $count = $stmt->rowCount();
 if ($count > 0) {
     header('Location: ../members.php?type=error&message=Member already exists');
     exit;
+}
+
+if ($type == 'Regular'){
+    $total = 300;
+} elseif ($type == 'Premium'){
+    $total = 500;
+} else {
+    $total = 800;
 }
 
 $change = $amount - $total;
@@ -50,14 +51,6 @@ $stmt->bindParam(':birthdate', $birthdate);
 $stmt->execute();
 
 $id = $db->lastInsertId();
-
-if ($type == 'REGULAR'){
-    $total = 300;
-} elseif ($type == 'PREMIUM'){
-    $total = 500;
-} else {
-    $total = 800;
-}
 
 $sql = "INSERT INTO payments (member, type, amount, total) VALUES (:member, :type, :amount, :total)";
 $stmt = $db->prepare($sql);
