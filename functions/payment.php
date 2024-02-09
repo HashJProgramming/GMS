@@ -3,9 +3,9 @@ include_once 'connection.php';
 
 $id = $_POST['id'];
 $type = $_POST['type'];
-if ($type == 'REGULAR'){
+if ($type == 'Regular'){
     $total = 300;
-} elseif ($type == 'PREMIUM'){
+} elseif ($type == 'Premium'){
     $total = 500;
 } else {
     $total = 800;

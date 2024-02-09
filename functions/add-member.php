@@ -1,7 +1,7 @@
 <?php
 include_once 'connection.php'; 
 
-$fullname = $_POST['fullname'];
+$fullname = $_POST['fullname']; 
 $sex = $_POST['sex'];
 $phone = $_POST['phone'];
 $address = $_POST['address'];
@@ -9,6 +9,14 @@ $type = $_POST['type'];
 $start_date = $_POST['start_date'];
 $birthdate = $_POST['birthdate'];
 $amount = $_POST['amount'];
+
+if ($type == 'Regular'){
+    $total = 300;
+} elseif ($type == 'Premium'){
+    $total = 500;
+} else {
+    $total = 800;
+}
 
 $sql = "SELECT * FROM members WHERE fullname = :fullname OR phone = :phone";
 $stmt = $db->prepare($sql);
@@ -25,7 +33,7 @@ if ($count > 0) {
 $change = $amount - $total;
 
 if ($change < 0) {
-    header('Location: ../rentals.php?type=error&message=Amount is not enough');
+    header('Location: ../members.php?type=error&message=Amount is not enough');
     exit;
 }
 
