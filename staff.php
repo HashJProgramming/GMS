@@ -108,6 +108,7 @@
                 </div>
                 <div class="modal-body">
                     <form action="functions/update-staff.php" method="post">
+                        <input type="hidden" name="id">
                         <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Username" name="username"><label class="form-label" for="floatingInput">Username</label></div>
                         <div class="form-floating mb-3"><input type="password" class="form-control" placeholder="Password" name="password"><label class="form-label" for="floatingInput">Password</label></div>
                         <div class="form-floating mb-3"><input type="text" class="form-control" placeholder="Fullname" name="fullname"><label class="form-label" for="floatingInput">Fullname</label></div>
@@ -126,9 +127,12 @@
                     <h4 class="modal-title">Remove Staff</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to remove this staff?</p>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">No</button><button class="btn btn-danger" type="button">Yes</button></div>
+                    <form action="functions/remove-staff.php" method="post">
+                        <p>Are you sure you want to remove this staff?</p>
+                        <input type="hidden" name="id">
+                    </div>
+                    <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">No</button><button class="btn btn-danger" type="submit">Yes</button></div>
+                </form>
             </div>
         </div>
     </div>
@@ -171,13 +175,14 @@
                 var fullname = $(this).data('fullname');
                 var address = $(this).data('address');
                 var phone = $(this).data('phone');
-
+                var username = $(this).data('username');
 
                 console.log(id);
                 $('input[name="id"]').val(id);
                 $('input[name="fullname"]').val(fullname);
                 $('input[name="address"]').val(address);
                 $('input[name="phone"]').val(phone);
+                $('input[name="username"]').val(username);
             });
 
             $('button[data-bs-target="#remove"]').on('click', function() {
