@@ -1,41 +1,39 @@
 <?php
 include_once 'functions/connection.php';
 
-$sql = 'SELECT b.*, r.rent, DATEDIFF(DATE_ADD(b.start_date, INTERVAL 1 MONTH), CURDATE()) AS days_due FROM `boarders` b
-        INNER JOIN `rooms` r ON b.room = r.id';
+$sql = 'SELECT *, DATEDIFF(DATE_ADD(start_date, INTERVAL 1 MONTH), CURDATE()) AS days_due FROM `members`';
 
 $stmt = $db->prepare($sql);
 $stmt->execute();
 $results = $stmt->fetchAll();
 
 foreach ($results as $row) {
+    $age = date_diff(date_create($row['birthdate']), date_create('now'))->y;
     $daysDue = $row['days_due'];
     $class = '';
     $text = '';
-    $total = 0;
     if ($daysDue > 0) {
-        $class = 'bg-success';
-        $text = 'Due in ' . $daysDue . ' days';
+        $class = 'badge bg-success';
+        $text = 'Expire in ' . $daysDue . ' days';
     } elseif ($daysDue == 0) {
-        $class = 'bg-warning';
-        $text = 'Due Today';
-        $total = round($row['rent'] + ($row['rent'] * abs($daysDue / 30)) );
+        $class = 'badge bg-warning';
+        $text = 'Expire Today';
     } else {
-        $class = 'bg-danger';
-        $text = 'Overdue ';
-        $total = round($row['rent'] + ($row['rent'] * abs($daysDue / 30)) );
+        $class = 'badge bg-danger';
+        $text = 'Expired';
     }
 ?>
     <tr>
-        <td><img class="rounded-circle me-2" width="30" height="30" src="functions/<?= $row['profile_picture'] ?>"><?= $row['fullname'] ?></td>
-        <td>Room #<?= $row['room'] ?></td>
-        <td>₱<?= $row['rent'] ?></td>
-        <td>₱<?= number_format($total,2) ?></td>
-        <td><?= $row['start_date'] ?></td>
-        <td class="<?= $class ?>"><?= $text ?></td>
-        <td><?= abs($daysDue > 0 ? 0 : $daysDue)?></td>
+        <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg"><?=$row['fullname']?></td>
+        <td><?=$row['address']?></td>
+        <td><?=$row['phone']?></td>
+        <td><?=$age?></td>
+        <td><?=$row['sex']?></td>
+        <td><?=$row['type']?></td>
+        <td><?=$row['start_date']?></td>
+        <td><span class="<?= $class ?>"><?= $text ?></span></td>
         <td class="text-center">
-            <a class="btn btn-primary mx-1" role="button" href="profile.php" data-bs-target="#pay" data-bs-toggle="modal" data-id="<?= $row['id'] ?>" data-room="<?= $row['room'] ?>" data-total="<?= $total ?>">
+            <a class="btn btn-primary mx-1" role="button" href="profile.php" data-bs-target="#pay" data-bs-toggle="modal" data-id="<?= $row['id'] ?>" data-type="<?= $row['type'] ?>">
                 <i class="far fa-money-bill-alt"></i>&nbsp;Payment
             </a>
         </td>

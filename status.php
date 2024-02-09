@@ -65,28 +65,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                            <td>Pagadian City</td>
-                                            <td>0000000000</td>
-                                            <td>33</td>
-                                            <td>Female</td>
-                                            <td>Regular</td>
-                                            <td>2008/11/28</td>
-                                            <td><span class="badge bg-danger">Expired - 2 Days Ago</span></td>
-                                            <td><button class="btn btn-primary btn-sm d-none d-sm-inline-block mx-1" id="my-5" type="button" data-bs-target="#pay" data-bs-toggle="modal"><i class="fas fa-eye fa-sm text-white-50"></i>&nbsp;Payment</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td><img class="rounded-circle me-2" width="30" height="30" src="assets/img/avatars/avatar1.jpeg">Airi Satou</td>
-                                            <td>Pagadian City</td>
-                                            <td>0000000000</td>
-                                            <td>33</td>
-                                            <td>Female</td>
-                                            <td>VIP</td>
-                                            <td>2008/11/28</td>
-                                            <td><span class="badge bg-success">Active - Due in 31 Days</span></td>
-                                            <td><button class="btn btn-primary btn-sm d-none d-sm-inline-block mx-1" id="my-2" type="button" data-bs-target="#pay" data-bs-toggle="modal"><i class="fas fa-eye fa-sm text-white-50"></i>&nbsp;Payment</button></td>
-                                        </tr>
+                                        <?php include_once 'functions/views/members-status.php' ?>
                                     </tbody>
                                     <tfoot>
                                         <tr></tr>
