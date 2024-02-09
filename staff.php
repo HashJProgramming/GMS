@@ -42,7 +42,7 @@
             <div id="content" class="mt-5">
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Staff Management</h3><button class="btn btn-primary btn-sm d-none d-sm-inline-block" type="button" data-bs-target="#add" data-bs-toggle="modal"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Add Staff</button>
+                        <h3 class="text-dark mb-0">Staff Management</h3><button class="btn btn-primary btn-sm mx-1 my-1" type="button" data-bs-target="#add" data-bs-toggle="modal"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Add Staff</button>
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">

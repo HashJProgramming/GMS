@@ -42,7 +42,7 @@
             <div id="content" class="mt-5">
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Members Management</h3><button class="btn btn-primary btn-sm d-none d-sm-inline-block" type="button" data-bs-target="#add" data-bs-toggle="modal"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Add Member</button>
+                        <h3 class="text-dark mb-0">Members Management</h3><button class="btn btn-primary btn-sm mx-1 my-1" type="button" data-bs-target="#add" data-bs-toggle="modal"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Add Member</button>
                     </div>
                     <div class="card shadow">
                         <div class="card-header py-3">
@@ -115,12 +115,13 @@
                                 <div class="form-floating mb-3"><input class="form-control form-control" placeholder="" type="date" name="birthdate"><label class="form-label" for="floatingInput">Birthdate</label></div>
                             </div>
                         </div>
+                        <div class="form-floating mb-3"><input class="form-control form-control" type="text" placeholder="Amount" name="amount"><label class="form-label" for="floatingInput">Amount</label></div>
                         <div class="form-floating"><select class="form-select form-select" aria-label="Floating label select example" id="floatingSelect-1" name="type">
-                                <option value="Regular">₱300 Regular (Membership)</option>
-                                <option value="Premium">₱500 Premium (Membership, Coach, Personal Locker)</option>
-                                <option value="VIP">₱800 VIP (Membership, ID Card, Coach, Personal Locker)</option>
-                            </select><label class="form-label" for="floatingSelect">Type</label></div>
-                        </div>
+                            <option value="Regular">₱300 Regular (Membership)</option>
+                            <option value="Premium">₱500 Premium (Membership, Coach, Personal Locker)</option>
+                            <option value="VIP">₱800 VIP (Membership, ID Card, Coach, Personal Locker)</option>
+                        </select><label class="form-label" for="floatingSelect">Type</label></div>
+                    </div>
                         <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="submit">Save</button></div>
                     </form>
             </div>

@@ -22,6 +22,14 @@ foreach ($results as $row) {
         $class = 'badge bg-danger';
         $text = 'Expired';
     }
+
+    if ($row['type'] == 'Regular') {
+        $text_type =$row['type'].' - ₱300';
+    } elseif ($row['type'] == 'Premium') {
+        $text_type =$row['type'].' - ₱500';
+    } else {
+        $text_type =$row['type'].' - ₱800';
+    }
 ?>
     <tr>
         <td><img class="rounded-circle me-2" width="30" height="30" src="https://bootdey.com/img/Content/avatar/avatar7.png"><?=$row['fullname']?></td>
@@ -29,7 +37,7 @@ foreach ($results as $row) {
         <td><?=$row['phone']?></td>
         <td><?=$age?></td>
         <td><?=$row['sex']?></td>
-        <td><?=$row['type']?></td>
+        <td><?=$text_type?></td>
         <td><?=$row['start_date']?></td>
         <td><span class="<?= $class ?>"><?= $text ?></span></td>
         <td class="text-center">

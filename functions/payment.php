@@ -15,7 +15,7 @@ $amount = $_POST['amount'];
 $change = $amount - $total;
 
 if ($change < 0) {
-    header('Location: ../rentals.php?type=error&message=Amount is not enough');
+    header('Location: ../status.php?type=error&message=Amount is not enough');
     exit;
 }
 
