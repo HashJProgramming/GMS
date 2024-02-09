@@ -177,7 +177,7 @@
                     <h4 class="modal-title">Remove Member</h4><button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="functions/r" method="post">
+                    <form action="functions/remove-member.php" method="post">
                         <input type="hidden" name="id">
                         <p>Are you sure you want to remove this member?</p>
                     </div>
