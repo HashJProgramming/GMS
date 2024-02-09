@@ -15,8 +15,8 @@ foreach ($results as $row) {
         <td><?=$row['address']?></td>
         <td><?=$row['phone']?></td>
         <td><?=$row['type']?></td>
-        <td>₱<?=number_format($row['amount'], 2)?></td>
         <td>₱<?=number_format($row['total'], 2)?></td>
+        <td>₱<?=number_format($row['amount'], 2)?></td>
         <td><?=$row['start_date']?></td>
     </tr>
 <?php
