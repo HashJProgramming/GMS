@@ -4,5 +4,6 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 if (!isset($_SESSION['username'])) {
     header('Location: ./index.php');
+    exit();
 }
 ?>

@@ -1,5 +1,10 @@
 <?php
     include_once 'functions/authentication.php';
+    include_once 'functions/connection.php';
+    if (!isset($_SESSION['username'])) {
+        header('Location: ./index.php');
+        exit();
+    }
 ?>
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en">
